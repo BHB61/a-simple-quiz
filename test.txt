@@ -1,1 +1,32 @@
 test
+#kurze bash-script beispil: Zahlenraten-spiel
+
+
+
+nano zahl.sh
+
+
+#!/bin/bash
+
+random_number=$((RANDOM % 20 + 1))
+
+echo "willkommen ,Ich habe ein Zahl zwischen 1 und 20 ausgewählt. Rate mal: "
+
+guess=0
+while [ $guess -ne $random_number ]
+do
+    read -p "Dein tipp: " guess
+    if [ $guess -lt $random_number ]; then
+       echo "Zu niedrig!"
+    elif [ $guess -gt $random_number ]; then
+       echo "Zu viel!"
+    else
+       echo "Richtig! Die Zahl war $random_number."
+    fi
+done
+
+chmod +x zahl.sh
+./zahl.sh
+
+
+
